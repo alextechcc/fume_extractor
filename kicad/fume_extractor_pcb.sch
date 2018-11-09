@@ -1,0 +1,357 @@
+EESchema Schematic File Version 4
+LIBS:fume_extractor_pcb-cache
+EELAYER 26 0
+EELAYER END
+$Descr User 5906 5906
+encoding utf-8
+Sheet 1 1
+Title "Cruddy 25Khz PWM Fan Controller"
+Date ""
+Rev "1.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Timer:NE555 U2
+U 1 1 5B5D2609
+P 2900 3150
+F 0 "U2" H 2600 3550 50  0000 C CNN
+F 1 "NE555" H 2900 3150 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm_Socket" H 2900 3150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ne555.pdf" H 2900 3150 50  0001 C CNN
+	1    2900 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Diode:1N4148 D2
+U 1 1 5B5D2746
+P 1500 2100
+F 0 "D2" H 1500 2000 50  0000 C CNN
+F 1 "1N4148" H 1500 2200 50  0000 C CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 1500 1925 50  0001 C CNN
+F 3 "http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf" H 1500 2100 50  0001 C CNN
+	1    1500 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Diode:1N4148 D1
+U 1 1 5B5D2831
+P 1050 2100
+F 0 "D1" H 1050 2200 50  0000 C CNN
+F 1 "1N4148" H 1050 2000 50  0000 C CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 1050 1925 50  0001 C CNN
+F 3 "http://www.nxp.com/documents/data_sheet/1N4148_1N4448.pdf" H 1050 2100 50  0001 C CNN
+	1    1050 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5B5D347E
+P 1250 2950
+F 0 "C1" H 1365 2996 50  0000 L CNN
+F 1 "1nF" H 1365 2905 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 1288 2800 50  0001 C CNN
+F 3 "~" H 1250 2950 50  0001 C CNN
+	1    1250 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1050 2250 1050 2350
+Wire Wire Line
+	1500 2250 1500 2350
+$Comp
+L power:GND #PWR06
+U 1 1 5B5D4233
+P 2900 3650
+F 0 "#PWR06" H 2900 3400 50  0001 C CNN
+F 1 "GND" H 2905 3477 50  0000 C CNN
+F 2 "" H 2900 3650 50  0001 C CNN
+F 3 "" H 2900 3650 50  0001 C CNN
+	1    2900 3650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3400 3150
+Wire Wire Line
+	2900 3650 2900 3550
+$Comp
+L Device:C C2
+U 1 1 5B5DADA9
+P 3050 2500
+F 0 "C2" V 3200 2500 50  0000 C CNN
+F 1 "0.1uF" V 2900 2500 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D6.0mm_W2.5mm_P5.00mm" H 3088 2350 50  0001 C CNN
+F 3 "~" H 3050 2500 50  0001 C CNN
+	1    3050 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 5B5DAE42
+P 3200 2600
+F 0 "#PWR07" H 3200 2350 50  0001 C CNN
+F 1 "GND" H 3205 2427 50  0000 C CNN
+F 2 "" H 3200 2600 50  0001 C CNN
+F 3 "" H 3200 2600 50  0001 C CNN
+	1    3200 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 2500 2900 2750
+Wire Wire Line
+	3200 2500 3200 2600
+Wire Wire Line
+	2900 2500 2800 2500
+Wire Wire Line
+	2800 2500 2800 2450
+Connection ~ 2900 2500
+Text Label 2200 2950 0    50   ~ 0
+LEVEL
+Wire Wire Line
+	3400 3350 3550 3350
+$Comp
+L Connector:Conn_01x05_Male J2
+U 1 1 5B5DE47C
+P 4750 2550
+F 0 "J2" H 4722 2480 50  0000 R CNN
+F 1 "CONTROLS_CONN" H 4722 2571 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 4750 2550 50  0001 C CNN
+F 3 "~" H 4750 2550 50  0001 C CNN
+	1    4750 2550
+	-1   0    0    1   
+$EndComp
+$Comp
+L Regulator_Linear:L7805 U1
+U 1 1 5B5DE611
+P 2850 1350
+F 0 "U1" H 2850 1592 50  0000 C CNN
+F 1 "L7805" H 2850 1501 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 2875 1200 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 2850 1300 50  0001 C CNN
+	1    2850 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR03
+U 1 1 5B5DEA79
+P 2450 1300
+F 0 "#PWR03" H 2450 1150 50  0001 C CNN
+F 1 "+12V" H 2465 1473 50  0000 C CNN
+F 2 "" H 2450 1300 50  0001 C CNN
+F 3 "" H 2450 1300 50  0001 C CNN
+	1    2450 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR08
+U 1 1 5B5DEB0A
+P 3250 1300
+F 0 "#PWR08" H 3250 1150 50  0001 C CNN
+F 1 "+5V" H 3265 1473 50  0000 C CNN
+F 2 "" H 3250 1300 50  0001 C CNN
+F 3 "" H 3250 1300 50  0001 C CNN
+	1    3250 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR04
+U 1 1 5B5DF79C
+P 2800 2450
+F 0 "#PWR04" H 2800 2300 50  0001 C CNN
+F 1 "+5V" H 2815 2623 50  0000 C CNN
+F 2 "" H 2800 2450 50  0001 C CNN
+F 3 "" H 2800 2450 50  0001 C CNN
+	1    2800 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR02
+U 1 1 5B5DF7D9
+P 2250 3350
+F 0 "#PWR02" H 2250 3200 50  0001 C CNN
+F 1 "+5V" H 2150 3350 50  0000 C CNN
+F 2 "" H 2250 3350 50  0001 C CNN
+F 3 "" H 2250 3350 50  0001 C CNN
+	1    2250 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 3350 2400 3350
+Wire Wire Line
+	2450 1350 2550 1350
+Wire Wire Line
+	2450 1350 2450 1300
+Wire Wire Line
+	3150 1350 3250 1350
+Wire Wire Line
+	3250 1350 3250 1300
+$Comp
+L power:GND #PWR05
+U 1 1 5B5E0B67
+P 2850 1800
+F 0 "#PWR05" H 2850 1550 50  0001 C CNN
+F 1 "GND" H 2855 1627 50  0000 C CNN
+F 2 "" H 2850 1800 50  0001 C CNN
+F 3 "" H 2850 1800 50  0001 C CNN
+	1    2850 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 1650 2850 1800
+$Comp
+L Connector:Conn_01x04_Male J1
+U 1 1 5B5E4BD7
+P 4700 3300
+F 0 "J1" H 4672 3180 50  0000 R CNN
+F 1 "FAN_CONN" H 4672 3271 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4700 3300 50  0001 C CNN
+F 3 "~" H 4700 3300 50  0001 C CNN
+	1    4700 3300
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR011
+U 1 1 5B5E8D3A
+P 4400 3400
+F 0 "#PWR011" H 4400 3150 50  0001 C CNN
+F 1 "GND" H 4250 3350 50  0000 C CNN
+F 2 "" H 4400 3400 50  0001 C CNN
+F 3 "" H 4400 3400 50  0001 C CNN
+	1    4400 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 3400 4500 3400
+$Comp
+L power:+12V #PWR010
+U 1 1 5B5EA3CA
+P 4400 3300
+F 0 "#PWR010" H 4400 3150 50  0001 C CNN
+F 1 "+12V" H 4250 3300 50  0000 C CNN
+F 2 "" H 4400 3300 50  0001 C CNN
+F 3 "" H 4400 3300 50  0001 C CNN
+	1    4400 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 3300 4400 3300
+NoConn ~ 4500 3200
+Text Label 4300 3100 1    50   ~ 0
+PWM
+Wire Wire Line
+	3400 2950 3550 2950
+Wire Wire Line
+	1250 1550 1250 1350
+Wire Wire Line
+	4550 2450 4400 2450
+Wire Wire Line
+	4400 2450 4400 2400
+$Comp
+L power:+12V #PWR09
+U 1 1 5B5FBBE7
+P 4400 2400
+F 0 "#PWR09" H 4400 2250 50  0001 C CNN
+F 1 "+12V" H 4250 2400 50  0000 C CNN
+F 2 "" H 4400 2400 50  0001 C CNN
+F 3 "" H 4400 2400 50  0001 C CNN
+	1    4400 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5B5FE0FC
+P 1250 3200
+F 0 "#PWR01" H 1250 2950 50  0001 C CNN
+F 1 "GND" H 1255 3027 50  0000 C CNN
+F 2 "" H 1250 3200 50  0001 C CNN
+F 3 "" H 1250 3200 50  0001 C CNN
+	1    1250 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1250 3200 1250 3100
+Text Label 1250 1350 0    50   ~ 0
+PWM
+Text Label 3550 2950 0    50   ~ 0
+PWM
+Text Label 3550 3350 0    50   ~ 0
+LEVEL
+Wire Wire Line
+	4300 3100 4500 3100
+Wire Wire Line
+	1050 2350 1250 2350
+Wire Wire Line
+	1250 2350 1250 2550
+Connection ~ 1250 2350
+Wire Wire Line
+	1250 2350 1500 2350
+Wire Wire Line
+	1250 2550 1400 2550
+Connection ~ 1250 2550
+Wire Wire Line
+	1250 2550 1250 2800
+Text Label 1400 2550 0    50   ~ 0
+LEVEL
+Wire Wire Line
+	2200 2950 2400 2950
+Wire Wire Line
+	4300 2550 4550 2550
+Text Label 4300 2550 0    50   ~ 0
+POT_L
+Wire Wire Line
+	4550 2750 4300 2750
+Text Label 4300 2750 0    50   ~ 0
+POT_R
+Wire Wire Line
+	4550 2650 4300 2650
+Text Label 4300 2650 0    50   ~ 0
+POT_M
+Wire Wire Line
+	1050 1950 1050 1800
+Wire Wire Line
+	1500 1950 1500 1800
+Text Label 1500 1800 0    50   ~ 0
+POT_L
+Text Label 1050 1800 0    50   ~ 0
+POT_R
+Text Label 1250 1550 0    50   ~ 0
+POT_M
+NoConn ~ 2400 3150
+Wire Wire Line
+	4700 1750 4700 1550
+$Comp
+L power:GND #PWR012
+U 1 1 5B60BADF
+P 4700 1750
+F 0 "#PWR012" H 4700 1500 50  0001 C CNN
+F 1 "GND" H 4705 1577 50  0000 C CNN
+F 2 "" H 4700 1750 50  0001 C CNN
+F 3 "" H 4700 1750 50  0001 C CNN
+	1    4700 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1350 4850 1350
+Text Label 4850 1350 0    50   ~ 0
+JACK+
+Wire Wire Line
+	4550 2350 4550 2200
+Text Label 4550 2200 0    50   ~ 0
+JACK+
+$Comp
+L Connector:Barrel_Jack_Switch J3
+U 1 1 5B60E914
+P 4400 1450
+F 0 "J3" H 4455 1767 50  0000 C CNN
+F 1 "Barrel_Jack_Switch" H 4455 1676 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 4450 1410 50  0001 C CNN
+F 3 "~" H 4450 1410 50  0001 C CNN
+	1    4400 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1450 4700 1550
+Connection ~ 4700 1550
+$EndSCHEMATC

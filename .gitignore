@@ -1,0 +1,4 @@
+*.FCStd*
+*bak
+*cache.lib
+*.swp
